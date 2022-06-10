@@ -1,7 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+TypeTransaction.find_or_create_by(type_code: 1, description: 'Débito', label: 'Entrada', value: true)
+TypeTransaction.find_or_create_by(type_code: 2, description: 'Boleto', label: 'Saída', value: '-')
+TypeTransaction.find_or_create_by(type_code: 3, description: 'Financiamento', label: 'Saída', value: '-')
+TypeTransaction.find_or_create_by(type_code: 4, description: 'Crédito', label: 'Entrada', value: true)
+TypeTransaction.find_or_create_by(type_code: 5, description: 'Recebimento Empréstimo', label: 'Entrada', value: true)
+TypeTransaction.find_or_create_by(type_code: 6, description: 'Vendas', label: 'Entrada', value: true)
+TypeTransaction.find_or_create_by(type_code: 7, description: 'Recebimento TED', label: 'Entrada', value: true)
+TypeTransaction.find_or_create_by(type_code: 8, description: 'Recebimento DOC', label: 'Entrada', value: true)
+TypeTransaction.find_or_create_by(type_code: 9, description: 'Aluguel', label: 'Saída', value: false)

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type_transaction: one
+  date: 2022-06-10 18:44:56
+  value: 1.5
+  cpf: MyString
+  card: MyString
+  hour: 2022-06-10 18:44:56
+  store_manager: MyString
+  store_name: MyString
+
+two:
+  type_transaction: two
+  date: 2022-06-10 18:44:56
+  value: 1.5
+  cpf: MyString
+  card: MyString
+  hour: 2022-06-10 18:44:56
+  store_manager: MyString
+  store_name: MyString
