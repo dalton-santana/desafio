@@ -1,6 +1,4 @@
 class TransactionsController < ApplicationController
-  before_action :set_transaction, only: %i[show update destroy]
-
   # GET /transactions
   def index
     @transactions = Transaction.all
@@ -8,40 +6,35 @@ class TransactionsController < ApplicationController
     render json: @transactions
   end
 
-  # GET /transactions/1
-  def show
-    render json: @transaction
+  # GET /transactions/by_store
+  def by_store
+    @transactions = Transaction.includes(:type_transaction).all
+
+    stores = @transactions.group_by(&:store_name)
+
+    result = {}
+
+    stores.each do |key, value|
+      total = 0
+      value.each do |transaction|
+        if transaction.type_transaction.value
+          total += transaction.value
+        else
+          total -= transaction.value
+        end
+      end
+
+      result[key] = {
+        transactions: ActiveModelSerializers::SerializableResource.new(value),
+        total: total
+      }
+    end
+
+    render json: result
   end
 
   # POST /transactions
   def create
     render json: FormatTransactionService.new(params[:file]).call
-  end
-
-  # PATCH/PUT /transactions/1
-  def update
-    if @transaction.update(transaction_params)
-      render json: @transaction
-    else
-      render json: @transaction.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /transactions/1
-  def destroy
-    @transaction.destroy
-  end
-
-  private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_transaction
-    @transaction = Transaction.find(params[:id])
-  end
-
-  # Only allow a trusted parameter "white list" through.
-  def transaction_params
-    params.require(:transaction).permit(:file, :type_transaction_id, :date, :value, :cpf, :card, :hour,
-                                        :store_manager, :store_name)
   end
 end
