@@ -28,7 +28,7 @@ http://localhost:4000/
 
 ![](/docs/arq.jpg)
 
-### Entidade e Relacionamento
+### Tabelas do Banco de Dados
 
 ![](/docs/er.jpg)
 
