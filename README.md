@@ -50,6 +50,12 @@ http://localhost:4000/
 
   * FilterByStoreService - Responsável por filtrar as transações por loja e calcular o saldo da conta
 
+### Testes
+
+Diretório: /spec
+
+``` docker exec api bundle exec rspec ```
+
 
 
 
