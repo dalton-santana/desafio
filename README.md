@@ -6,7 +6,7 @@
 - PostgresQL
 ## Setup
 
-1 - Executa e monta os containers
+1 - Sobe/constroi os containers
 
 ```  docker-compose up --build ```
 
@@ -48,7 +48,7 @@ http://localhost:4000/
 - /app/services
   * FormatTransactionService - Responsável por normalizar os dados e adionar os registro no BD
 
-  * FilterByStoreService - Responsável por filtrar as transações por loja e calcular o saldo
+  * FilterByStoreService - Responsável por filtrar as transações por loja e calcular o saldo da conta
 
 
 
