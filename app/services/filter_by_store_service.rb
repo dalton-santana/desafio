@@ -8,9 +8,11 @@ class FilterByStoreService
 
     result = {}
 
+    # Soma de valores das transações para cada loja
     stores.each do |key, value|
       total = 0
       value.each do |transaction|
+        # Se o valor do tipo transação for verdadeiro (entrada) é incrementado o valor da transação
         if transaction.type_transaction.value
           total += transaction.value
         else

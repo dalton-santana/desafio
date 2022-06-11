@@ -6,11 +6,19 @@ class FormatTransactionService
 
   def call
     result = []
+
+    # Convertido em texto o arquivo enviado
     text = File.read(@file.path)
+
+    # Convertido todo o texto em um array de caracteres
     list_of_char = text.split('')
 
+    # Variavel para controlar qual caractere atual está sendo analisado
     current_char_index = 0
+
     number_lines = list_of_char.count / 81
+
+    # Normalizando os dados
     number_lines.times do
       hash_of_type_char = {
         type: list_of_char[current_char_index + 0],
@@ -35,10 +43,9 @@ class FormatTransactionService
           store_name: hash_of_type_char[:store_name] * ''
         }
 
+      # Quebra de linha
       current_char_index += 81
     end
-
-    puts result
 
     Transaction.create!(result)
   end
