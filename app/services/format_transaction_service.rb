@@ -38,6 +38,8 @@ class FormatTransactionService
       current_char_index += 81
     end
 
+    puts result
+
     Transaction.create!(result)
   end
 

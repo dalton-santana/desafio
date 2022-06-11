@@ -1,0 +1,37 @@
+.file-container {
+  text-align: center;
+}
+
+.store-title {
+  margin: 20px 0px
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0px
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color: coral;
+}
+
+.line-green {
+  color: green;
+}
+
+.line-red {
+  color: red;
+}
+
+.total {
+  text-align: right;
+  margin-bottom: 40px;
+}
